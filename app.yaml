@@ -1,0 +1,19 @@
+application: tictactoe-p
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  script: index.php
+  
+- url: /style.css
+  static_files: style.css
+  upload: style.css
+
+- url: /play.php
+  script: play.php
+
+- url: /interaction.php
+  script: interaction.php

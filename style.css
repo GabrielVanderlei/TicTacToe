@@ -1,0 +1,327 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI";
+    font-weight: 100;
+    text-align: center;
+    overflow: hidden;
+}
+
+.main_title{
+    border-radius: 3px;
+    padding: 5px 15px;
+    margin: 15px 0 9px 0;
+    background: rgb(250, 250, 250);
+    color: black;
+    display: inline-block;
+    font-size: 32px;
+}
+
+.title{
+    border-radius: 3px;
+    padding: 5px 15px;
+    margin: 15px 0 9px 0;
+    background: rgb(200, 0, 0);
+    color: white;
+    display: inline-block;
+    font-size: 28px;
+}
+
+.description{
+    border-radius: 3px;
+    padding: 5px 15px;
+    margin: 15px 0 10% 0;
+    background: rgb(200, 100, 100);
+    color: white;
+    display: inline-block;
+    font-size: 22px;
+}
+
+.urlinvite {
+    width: 950px;
+    text-align: justify;
+    display: inline-block;
+    margin-right: -25%;
+}
+
+.qrcode{
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    display: inline-block;
+    margin-left: -200px;
+}
+
+.urldesc{
+    font-size: 22px;
+}
+
+.url{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    font-size: 28px;
+    margin-top: -15px;
+    display: block;
+    width: 100%;
+    font-family: "Segoe UI";
+    font-weight: 100;
+    height: 40px;
+}
+
+.copy{
+    padding: 5px 15px;
+    margin-top: 15px;
+    display: inline-block;
+    background: rgb(200, 20, 20);
+    color: white;
+    border-radius: 3px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.circle{
+    border-radius: 300px;
+    width: 300px;
+    height: 300px;
+    /*border: 10px solid rgba(0, 100, 200, 0.6);*/
+    border: 10px solid rgb(100, 100, 100);
+    transition: all 0.6s;
+    position: absolute;
+    top: 200px;
+    left: 25%;
+}
+
+.xis{
+    position: absolute;
+    top: 350px;
+    left: 25%;
+}
+
+.x1{
+    border: 5px solid rgb(100, 100, 100);
+    border-radius: 10px;
+    width: 300px;
+    height: 0px;
+    transform: rotate(45deg);
+    transition: all 0.6s;
+}
+
+.x2{
+    border: 5px solid rgb(100, 100, 100);
+    border-radius: 10px;
+    transition: all 0.6s;
+    width: 300px;
+    height: 0px;
+    transform: rotate(-45deg);
+}
+
+.content_circle{    position: fixed;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: rgb(240, 240, 240);
+    transition: all 0.6s;
+    cursor: pointer;
+    z-index: -1;
+}
+
+.content_xis{    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background: white;
+    transition: all 0.6s;
+    cursor: pointer;
+    z-index: -1;
+}
+
+
+
+.content_circle:hover {
+    background: rgba(0, 100, 200, 0.6);
+}
+
+.content_circle:hover .circle {
+    border: 10px solid white;
+}
+
+.content_xis:hover{
+    background:rgba(100, 200, 100, 0.6);
+}
+
+.content_xis:hover .x1,.content_xis:hover .x2{
+    border: 5px solid white;
+}
+
+.circle{
+    /*border: 10px solid rgba(0, 100, 200, 0.6);*/
+    border: 10px solid rgba(0, 100, 200, 0.6);
+    transition: all 0.6s;
+    position: absolute;
+    top: -23.5%;
+    left: 0%;
+    transform: scale(0);
+}
+
+.x1{
+    border: 5px solid rgba(100, 200, 100, 0.6);
+    border-radius: 10px;
+    width: 300px;
+    height: 0px;
+    transition: all 0.6s;
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: scale(0) rotate(45deg);
+}
+
+.option.disabled{
+    border: 1px solid rgb(220, 220, 220)!important;
+}
+
+.x2{
+    border: 5px solid rgba(100, 200, 100, 0.6);
+    border-radius: 10px;
+    transition: all 0.6s;
+    width: 300px;
+    height: 0px;
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: scale(0) rotate(-45deg);
+}
+
+.status{
+    position: absolute;
+    left: 71%;
+    top: 50%;
+    width: 29%;
+    text-align: justify;
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+.turn{
+    padding: 15px 0;
+    font-size: 32px;
+}
+
+.player{
+    padding: 0;
+    font-size: 12px;
+}
+
+.con{
+    padding: 15px 0px;
+    font-size: 12px;
+}
+#log{opacity: 0;}
+
+.option{
+    border: 1px solid black;
+    background: white;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.6s;
+}
+
+.option:hover{
+    background: rgb(250, 250, 250);
+}
+
+.content{
+    transform: scale(0.9);
+    position: absolute;
+    left: 3%;
+    top: 4%;
+}
+
+.next{
+    position: absolute;
+    left: 85%;
+    top: 72%;
+    margin-top: 9px;
+    background: rgb(200, 0, 0);
+    color: white;
+    padding: 5px 15px;
+    font-size: 28px;
+    border-radius: 3px;
+    transition: all 0.6s;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.placar{
+    position: absolute;
+    left: 72%;
+    top: 72%;
+    width: 29%;
+    text-align: justify;
+    color: black;
+}
+
+.p1{
+    border: 0px solid black;
+    font-size: 32px;
+    color: black;
+    position: absolute;
+    border-radius: 3px;
+    padding: 15px;
+}
+
+.vs{
+    border: 1px solid black;
+    font-size: 22px;
+    color: black;
+    position: absolute;
+    padding: 5px;
+    border-radius: 3px;
+    margin-top: 20px;
+    left: 15%;
+}
+
+.p2{
+    border: 0px solid black;
+    font-size: 32px;
+    color: black;
+    position: absolute;
+    border-radius: 3px;
+    left: 27%;
+    top: 0;
+    padding: 15px;
+}
+
+.chat{
+    padding: 5px;
+    position: absolute;
+    left: 71%;
+    top: 5%;
+    width: 27%;
+    text-align: justify;
+    color: black;
+    border: 1px solid black;
+    height: 40%;
+    overflow: auto;
+}
+
+.ct{
+    padding: 5px;
+    font-size: 12px;
+    border-bottom: 1px solid black;
+}
+
+#chatInp{
+    padding: 5px;
+    margin: 0;
+    font-size: 12px;
+    border: none;
+    border: 1px solid black;
+    display: block;
+    position: absolute;
+    left: 71%;
+    top: 45%;
+    width: 27%;
+}
