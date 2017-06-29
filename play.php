@@ -7,6 +7,8 @@
     //Verify
     if($_COOKIE['player'] == md5(1 + session_id())){$player = 1;}
     if($_COOKIE['player'] == md5(2 + session_id())){ $player = 2;}
+    
+    if($_COOKIE['2p'] == 1){ $player=1;}
 
 ?>
 
@@ -15,11 +17,12 @@
     <head>
         <meta charset="utf-8" />
         <title>TicTacToe-P</title>
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="game.css"/>
     </head>
     <body>
         <script>
             var you = <?php echo $player;?>
+
         </script>
         <script>
             var xhp = new XMLHttpRequest();
@@ -82,6 +85,7 @@
                         document.getElementById("log").innerHTML = xhp.responseText;
                         read(rest); r = 1;
 
+                        if (rest['2P'] == 1) { you = rest['TUR']; }
                         document.getElementById("TUR").innerHTML = "Vez do player " + rest["TUR"];
                         document.getElementById("P").innerHTML = "Você é o player " + you;
                         document.getElementById("p1").innerHTML = rest['W1'];
@@ -135,19 +139,24 @@
                 if (position) { insp = "?position=" + position; }
                 xhp.open("GET", "interaction.php" + insp, true);
                 xhp.send();
+                verify();
+
             }
 
             setInterval(load, 1000);
-            verify();
 
             function makeTab() {
+
 
                 var h = (window.innerHeight) / 3,
                     w = ((window.innerWidth * 0.7) - 15) / 3,
                     c = document.getElementById("content"),
+                    cm = document.getElementById("contentMask"),
                     x = 0, ix = 1,
                     y = 0, iy = 1;
 
+                c.style.width = ((window.innerWidth * 0.7) - 25) + "px";
+                c.style.height = (window.innerHeight - 10) + "px";
                 for (i = 1; i <= 9; i++) {
 
                     c.innerHTML += ["<div class='option' id='" + ix + "" + iy + "' style='width:" + w + "px;height:" + h + "px;" +
@@ -212,22 +221,28 @@
 
         </script>
         <div id="log"></div>
-        <div class="content" id="content">
+        <div id="sidebar1" class="sidebar">
+            <div class="content" id="content"></div>
+            <div class="content" id="contentMask"></div>
         </div>
-        <div class="status">
-            <div class="turn" id="TUR">Carregando...</div>
-            <div class="player" id="P">Carregando...</div>
-            <div class="con" id="CON">Carregando...</div>
+        <div id="sidebar2" class="sidebar">
+            <div class="status">
+                <div class="turn" id="TUR">Carregando...</div>
+                <div class="player" id="P">Carregando...</div>
+                <div class="con" id="CON">Carregando...</div>
+            </div>
+        </div>
+        <div id="sidebar3" class="sidebar">
+            <div class="next" id="next" onclick="load('RES')">Próximo</div>
+            <div class="next" style="opacity: 1;display: block;margin-top: 100px;" onclick="end()">Finalizar</div>
+            <div class="placar">
+                <div class="p1" id="p1">0</div><div class='vs'>VS</div><div class="p2" id="p2">0</div>
+            </div>
         </div>
         <div class="chat">
             <div class="ct">Chat</div>
             <div class="ch" id="ch"></div>
-        </div>
-        <input type="text" id="chatInp" placeholder="Fale com seu amigo... (Aperte enter pra enviar)" />
-        <div class="next" id="next" onclick="load('RES')">Próximo</div>
-        <div class="next" style="opacity: 1;display: block;" onclick="end()">Finalizar</div>
-        <div class="placar">
-            <div class="p1" id="p1">0</div><div class='vs'>VS</div><div class="p2" id="p2">0</div>
+            <input type="text" id="chatInp" placeholder="Escreva aqui..." />
         </div>
         <script>document.getElementById("chatInp").onkeyup = function(e){if(e.which == 13){chat(this.value);this.value="";}};makeTab();</script>
     </body>

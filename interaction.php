@@ -9,9 +9,11 @@
         }    
 
         foreach($_SESSION as $key=>$ck){
-           unset($_SESSION[$key]); 
+          $_SESSION[$key] = ""; 
         }   
-        exit();
+        session_unset();
+        session_unregister();
+        exit("Finalizado");
     }
 
     $i1 = 1;
@@ -20,6 +22,8 @@
     //Verify
     if($_COOKIE['player'] == md5(1 + session_id())){$player = 1;}
     if($_COOKIE['player'] == md5(2 + session_id())){ $player = 2;}
+    if($_COOKIE['2p'] == 1){ $_SESSION['data']['2P'] = 1; $player=$_SESSION['data']['TUR'];}
+
     $_SESSION['data']['PT'.$player] = time();
     
     $_SESSION['data']['CON'] = "Esperando jogada do player ". $_SESSION['data']['TUR'];
@@ -109,4 +113,5 @@
         );
     }
 
+    
 ?> }

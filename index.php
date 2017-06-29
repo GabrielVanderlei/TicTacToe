@@ -5,9 +5,10 @@
 
     $_URL = "http://localhost:64083";
 
-    if($_GET['invite'] != "" && $_COOKIE['player'] != md5( 1 + $_GET['invite'])){
+    if($_GET['invite'] != "" && ($_COOKIE['player'] != md5( 1 + $_GET['invite']) or $_GET['2play'] == "true")){
 
         setcookie("player", md5(2 + $_GET['invite']));
+        if($_GET['2play'] == true){setcookie("2p", 1);}
         setcookie("PHPSESSID", $_GET['invite']);
         header('location: play.php');
         exit();
@@ -21,6 +22,7 @@
         11 => 0,12 => 0,13 => 0,
         21 => 0,22 => 0,23 => 0,
         31 => 0,32 => 0,33 => 0,
+
         "P1" => 1, "P2" => 0, "TUR" => 1,
         "PT1" => time(), "PT2" => 0,
         "W1" => 0, "W2" => 0, "W3" => 0, "WT" => 0,
@@ -35,19 +37,25 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>TicTacToe-P</title>
+        <title>TicTacToe</title>
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <div class="title">TicTacToe-P</div><br />
-        <div class="description">O clássico jogo da velha, dessa vez online e multiplayer!</div><br />
-        <div class="qrcode"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data= <?php echo $_SESSION['invite_link']; ?> " alt=""/></div>
-        <div class="urlinvite">
-            <div class="urldesc">Envie esse link a algum amigo para começar a jogar </div><br />
-            <textarea class="url" id="URL"> <?php echo $_SESSION['invite_link']; ?> </textarea>
-            <div class="copy" id="copyURL">Copiar url</div>
+        <div class="header">
+            <div class="title">Tic-Tac-Toe</div>
+            <div class="description">Jogo da velha multiplayer online</div>
         </div>
-
+        <div class="main">
+            <div class="urlinvite">
+                <div class="urldesc">Envie esse link para seu amigo e comece a jogar </div><br />
+                <input class="url" id="URL" value="<?php echo $_SESSION['invite_link']; ?>"/> 
+                <div class="copy" id="copyURL">Copiar url</div>
+            </div>
+            <div class="urlinvite">
+                <div class="urldesc">Ou se preferir, pode jogar o modo de 2 players em um único computador. </div>
+                <a href="<?php echo $_SESSION['invite_link']; ?>&2play=true" class="copy">Jogar</a></div>
+            </div>
+        </div>
         <script>
             var xhp = new XMLHttpRequest();
 
@@ -81,6 +89,5 @@
             setInterval(load, 1000);
             verify();
         </script>
-
     </body>
 </html>
