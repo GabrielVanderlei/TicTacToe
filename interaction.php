@@ -3,7 +3,7 @@
     ob_start( 'ob_gzhandler' );
     flush();
 
-    if($_GET['end'] == "true"){
+    if($_GET['end'] && $_GET['end'] == "true"){
         foreach($_COOKIE as $key=>$ck){
            setcookie($key, $ck, time()-3600); //seta o cookie com vencimento no passado, invalidando-o
         }    
@@ -20,9 +20,9 @@
     $i2 = 1;
 
     //Verify
-    if($_COOKIE['player'] == md5(1 + session_id())){$player = 1;}
-    if($_COOKIE['player'] == md5(2 + session_id())){ $player = 2;}
-    if($_COOKIE['2p'] == 1){ $_SESSION['data']['2P'] = 1; $player=$_SESSION['data']['TUR'];}
+    if($_COOKIE['player'] && $_COOKIE['player'] == md5(1 + session_id())){$player = 1;}
+    if($_COOKIE['player'] && $_COOKIE['player'] == md5(2 + session_id())){ $player = 2;}
+    if($_COOKIE['2p'] && $_COOKIE['2p'] == 1){ $_SESSION['data']['2P'] = 1; $player=$_SESSION['data']['TUR'];}
 
     $_SESSION['data']['PT'.$player] = time();
     

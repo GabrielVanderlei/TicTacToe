@@ -1,9 +1,8 @@
 <?php
     session_start();
     ob_start( 'ob_gzhandler' );
-    flush();
 
-    $_URL = "http://localhost:64083";
+    $_URL = "https://8000-gabrielvanderle-tictacto-yd3uo957pze.ws-us38.gitpod.io";
 
     if($_GET['invite'] != "" && ($_COOKIE['player'] != md5( 1 + $_GET['invite']) or $_GET['2play'] == "true")){
 
@@ -11,7 +10,7 @@
         if($_GET['2play'] == true){setcookie("2p", 1);}
         setcookie("PHPSESSID", $_GET['invite']);
         header('location: play.php');
-        exit();
+        exit("Transferindo");
     }
 
     setcookie("player", md5(1 + session_id()));
@@ -32,7 +31,6 @@
 
     
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
