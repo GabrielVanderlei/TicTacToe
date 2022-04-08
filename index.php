@@ -13,7 +13,7 @@
         exit("Transferindo");
     }
 
-    setcookie("player", md5(1 + session_id()));
+    setcookie("player", md5(string(1) . session_id()));
     $_SESSION['invite_link'] = $_URL . "/?invite=" .  session_id();
     
     // x = linha horizontal e y = linha vertical [xy]
