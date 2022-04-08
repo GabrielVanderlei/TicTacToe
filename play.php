@@ -5,8 +5,8 @@
     if(!$_COOKIE['player']){ exit("Opa! Algo errado por aqui."); }
 
     //Verify
-    if($_COOKIE['player'] == md5(1 + session_id())){$player = 1;}
-    if($_COOKIE['player'] == md5(2 + session_id())){ $player = 2;}
+    if($_COOKIE['player'] == md5("1" . session_id())){$player = 1;}
+    if($_COOKIE['player'] == md5("2" . session_id())){ $player = 2;}
     
     if($_COOKIE['2p'] == 1){ $player=1;}
 
