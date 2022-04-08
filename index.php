@@ -5,7 +5,7 @@
     $_URL = "https://" . $_SERVER['HTTP_HOST'];
 
     if($_GET['invite'] != "" && ($_COOKIE['player'] != md5( "1" . $_GET['invite']) or $_GET['2play'] == "true")){
-        setcookie("player", md5(2 + $_GET['invite']));
+        setcookie("player", md5("2" . $_GET['invite']));
         if($_GET['2play'] == true){setcookie("2p", 1);}
         setcookie("PHPSESSID", $_GET['invite']);
         header('location: play.php');
