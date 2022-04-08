@@ -1,0 +1,99 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Segoe UI;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 100;
+    text-align: center;
+    overflow: hidden;
+    background: #3F51B5;
+    border-top: 15px solid #1A237E;
+}
+
+.header{
+    margin: 11% 0;
+}
+
+#contentMask{
+    display: none;
+    
+}
+
+.main{
+    display: inline-block
+}
+
+.main_title{
+    display: block;
+    font-size: 32px;
+}
+
+.title{
+    display: block;
+    font-size: 60px;
+    text-transform: none;
+}
+
+.description{
+    border-radius: 3px;
+    padding: 5px;
+    margin: 0;
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+}
+
+.urlinvite {
+    width: 80%;
+    text-align: justify;
+    display: inline-block;
+    padding: 15px;
+    background: #3949AB;
+    border-radius: 3px;
+    margin: 15px;
+}
+
+.qrcode{
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    display: inline-block;
+    margin-left: -200px;
+}
+
+.urldesc{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.url{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 28px;
+    margin-top: -15px;
+    display: block;
+    width: 100%;
+    font-family: "Segoe UI";
+    font-weight: 100;
+    height: 40px;
+    background: transparent;
+    border: none;
+    border-bottom: #3F51B5;
+}
+
+.copy{
+    padding: 3px 15px;
+    margin-top: 15px;
+    display: inline-block;
+    background: white;
+    color: black;
+    border-radius: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    width: 89px;
+}
