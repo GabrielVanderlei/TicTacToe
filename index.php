@@ -2,7 +2,7 @@
     session_start();
     ob_start( 'ob_gzhandler' );
 
-    $_URL = "https://8000-gabrielvanderle-tictacto-yd3uo957pze.ws-us38.gitpod.io";
+    $_URL = "https://" . $_SERVER['HTTP_HOST'];
 
     if($_GET['invite'] != "" && ($_COOKIE['player'] != md5( 1 + $_GET['invite']) or $_GET['2play'] == "true")){
 
